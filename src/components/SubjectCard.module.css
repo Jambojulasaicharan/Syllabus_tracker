@@ -1,0 +1,271 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.card:hover {
+  border-color: var(--subject-color);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px var(--subject-color);
+}
+
+.card:hover .topBar {
+  opacity: 1;
+}
+
+.card:hover .viewHint {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.topBar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--subject-color), color-mix(in srgb, var(--subject-color) 50%, #ffffff));
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 12px;
+}
+
+.nameWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--subject-color);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--subject-color);
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deleteBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.deleteBtn:hover {
+  background: var(--danger-subtle);
+  color: var(--danger);
+}
+
+/* Stats */
+.statsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 12px 20px;
+  background: var(--bg-surface);
+  margin: 0 16px;
+  border-radius: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.statVal {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statKey {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statDivider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+/* Progress */
+.progressSection {
+  padding: 16px 20px 12px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.progressLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.progressPct {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--subject-color);
+}
+
+.progressBar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--subject-color), color-mix(in srgb, var(--subject-color) 70%, #ffffff));
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Topic preview */
+.topicPreview {
+  padding: 0 20px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.topicChip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  max-width: 160px;
+  border: 1px solid transparent;
+}
+
+.topicChip[data-status="Completed"] {
+  background: var(--success-subtle);
+  border-color: rgba(74, 222, 128, 0.2);
+  color: var(--success);
+}
+
+.topicChip[data-status="In Progress"] {
+  background: var(--warning-subtle);
+  border-color: rgba(251, 191, 36, 0.2);
+  color: var(--warning);
+}
+
+.topicChip[data-status="Not Started"] {
+  background: var(--bg-surface);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+.chipIcon {
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.chipText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.moreChip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border: 1px solid rgba(124, 106, 247, 0.2);
+}
+
+/* Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.deadline {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  padding: 3px 8px;
+  background: var(--bg-surface);
+  border-radius: 6px;
+}
+
+.deadline.soon {
+  color: var(--warning);
+  background: var(--warning-subtle);
+}
+
+.deadline.urgent {
+  color: var(--danger);
+  background: var(--danger-subtle);
+}
+
+.noDeadline {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.viewHint {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--subject-color);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all var(--transition);
+}

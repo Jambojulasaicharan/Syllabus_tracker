@@ -1,0 +1,164 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.item:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.item.Completed {
+  border-color: rgba(74, 222, 128, 0.2);
+  background: var(--success-subtle);
+}
+
+.item.InProgress {
+  border-color: rgba(251, 191, 36, 0.2);
+  background: var(--warning-subtle);
+}
+
+/* Status button */
+.statusBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.statusBtn[data-status="Completed"] {
+  background: var(--success);
+  border-color: var(--success);
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+}
+
+.statusBtn[data-status="In Progress"] {
+  border-color: var(--warning);
+}
+
+.statusBtn[data-status="Not Started"]:hover {
+  border-color: var(--accent);
+}
+
+.checkmark {
+  font-size: 12px;
+  color: #000;
+  font-weight: 800;
+}
+
+.pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--warning);
+  animation: pulse-ring 1.8s ease infinite;
+}
+
+/* Content */
+.topicContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all var(--transition);
+}
+
+.title.done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.statusLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.statusLabel[data-status="Completed"] {
+  color: var(--success);
+}
+
+.statusLabel[data-status="In Progress"] {
+  color: var(--warning);
+}
+
+.statusLabel[data-status="Not Started"] {
+  color: var(--text-muted);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusSelect {
+  height: 30px;
+  padding: 0 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-family: var(--font);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  appearance: none;
+}
+
+.statusSelect:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.statusSelect:hover {
+  border-color: var(--border-hover);
+}
+
+.deleteBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.deleteBtn:hover {
+  background: var(--danger-subtle);
+  color: var(--danger);
+}
