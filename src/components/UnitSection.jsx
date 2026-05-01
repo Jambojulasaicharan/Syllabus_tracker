@@ -12,7 +12,7 @@ export default function UnitSection({
   onDeleteUnit,
 }) {
   const [newTopic, setNewTopic] = useState("");
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
   const [previewUnit, setPreviewUnit] = useState(null);
   const topics = unit.topics || [];
@@ -34,9 +34,14 @@ export default function UnitSection({
     inputRef.current?.focus();
   }
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [unit.id]);
+
   function handleKeyDown(e) {
     if (e.key === "Enter") addTopic();
   }
+
   function importTopicsFromJson() {
     setTopicJsonError("");
     setTopicJsonSuccess("");
@@ -105,10 +110,13 @@ export default function UnitSection({
       <div className={styles.unitHeader}>
         <button
           className={styles.expandBtn}
-          onClick={() => setIsExpanded(!isExpanded)}
-          title={isExpanded ? "Collapse unit" : "Expand unit"}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(!isOpen);
+          }}
+          title={isOpen ? "Collapse unit" : "Expand unit"}
         >
-          {isExpanded ? "▼" : "▶"}
+          {isOpen ? "▼" : "▶"}
         </button>
         <h3 className={styles.unitTitle}>{unit.title}</h3>
         <div className={styles.unitStats}>
@@ -169,7 +177,7 @@ export default function UnitSection({
       </div>
 
       {/* Unit Content */}
-      {isExpanded && (
+      {isOpen && (
         <div className={styles.unitContent}>
           {/* Add Topic Input */}
           <div className={styles.addTopicWrap}>
