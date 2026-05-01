@@ -219,32 +219,38 @@ export default function App() {
   }
 
   function addTopic(subjectId, unitId, topicData) {
-    setData((prev) => ({
-      ...prev,
-      subjects: prev.subjects.map((s) => {
-        if (s.id !== subjectId) return s;
+  setData((prev) => ({
+    ...prev,
+    subjects: prev.subjects.map((s) => {
+      if (s.id !== subjectId) return s;
 
-        return {
-          ...s,
-          units: s.units.map((u) => {
-            if (u.id !== unitId) return u;
+      return {
+        ...s,
+        units: s.units.map((u) => {
+          if (u.id !== unitId) return u;
 
-            return {
-              ...u,
-              topics: [
-                ...u.topics,
-                {
-                  id: `t-${Date.now()}`,
-                  title: topicData.title,
-                  status: topicData.status || "Not Started",
-                },
-              ],
-            };
-          }),
-        };
-      }),
-    }));
-  }
+          const newTopic =
+  typeof topicData === "string"
+    ? {
+        id: crypto.randomUUID(),
+        title: topicData,
+        status: "Not Started",
+      }
+    : {
+        id: crypto.randomUUID(),
+        title: topicData.title,
+        status: topicData.status || "Not Started",
+      };
+
+          return {
+            ...u,
+            topics: [...u.topics, newTopic],
+          };
+        }),
+      };
+    }),
+  }));
+}
   function updateTopicStatus(subjectId, unitId, topicId, newStatus) {
     setData((prev) => ({
       ...prev,

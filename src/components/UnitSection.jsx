@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import TopicItem from "./TopicItem";
 import styles from "./UnitSection.module.css";
+import UnitPreview from "./preview";
 
 export default function UnitSection({
   unit,
@@ -13,7 +14,7 @@ export default function UnitSection({
   const [newTopic, setNewTopic] = useState("");
   const [isExpanded, setIsExpanded] = useState(true);
   const inputRef = useRef(null);
-
+  const [previewUnit, setPreviewUnit] = useState(null);
   const topics = unit.topics || [];
   const completed = topics.filter((t) => t.status === "Completed").length;
   const inProgress = topics.filter((t) => t.status === "In Progress").length;
@@ -65,6 +66,7 @@ export default function UnitSection({
         }
 
         topics.push({
+          id: `t-${Date.now()}-${i}`,
           title: item.trim(),
           status: "Not Started",
         });
@@ -77,6 +79,7 @@ export default function UnitSection({
         }
 
         topics.push({
+          id: `t-${Date.now()}-${i}`,
           title,
           status: VALID.includes(item.status) ? item.status : "Not Started",
         });
@@ -151,6 +154,18 @@ export default function UnitSection({
         >
           ×
         </button>
+        <button
+          className={styles.jsonToggleBtn}
+          onClick={() => setPreviewUnit(unit)}
+        >
+          Preview
+        </button>
+        {previewUnit && (
+          <UnitPreview
+            unit={previewUnit}
+            onClose={() => setPreviewUnit(null)}
+          />
+        )}
       </div>
 
       {/* Unit Content */}

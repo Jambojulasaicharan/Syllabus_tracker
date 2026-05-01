@@ -341,3 +341,63 @@
     transform: translateY(0);
   }
 }
+/* PREVENT ANY CHILD FROM BREAKING WIDTH */
+.jsonImportBox,
+.jsonImportBox * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* CRITICAL FIX FOR FLEX OVERFLOW */
+.jsonImportBox {
+  min-width: 0;
+}
+
+.jsonActions {
+  min-width: 0;
+}
+
+/* TEXTAREA FIX */
+.jsonTextarea {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* CODE BLOCK FIX (MAIN ISSUE) */
+.jsonHint code {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto; /* instead of overflowing */
+  white-space: pre; /* keep formatting */
+}
+@media (max-width: 640px) {
+
+  .jsonImportBox {
+    padding: 10px;
+    overflow: hidden; /* extra safety */
+  }
+
+  /* STACK BUTTONS */
+  .jsonActions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .jsonImportBtn,
+  .jsonClearBtn {
+    width: 100%;
+  }
+
+  /* TEXTAREA SAFE */
+  .jsonTextarea {
+    font-size: 12px;
+    min-height: 100px;
+  }
+
+  /* CODE BLOCK SAFE SCROLL */
+  .jsonHint code {
+    font-size: 10px;
+    padding: 6px;
+  }
+}

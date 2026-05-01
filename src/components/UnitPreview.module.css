@@ -1,0 +1,117 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #020617;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  padding: 16px;
+  color: white;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.header h2 {
+  font-size: clamp(18px, 4vw, 24px);
+}
+
+.header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* List */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Item */
+.item {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+/* Index */
+.index {
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.7;
+  min-width: 20px;
+}
+
+/* Content */
+.content {
+  flex: 1;
+}
+
+.text {
+  font-size: clamp(16px, 4vw, 20px);
+  line-height: 1.5;
+}
+
+.status {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* Sticky Copy Button */
+.copyWrapper {
+  position: sticky;
+  bottom: 0;
+  background: #020617;
+  padding-top: 12px;
+}
+
+/* Button */
+.copyBtn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Hover */
+.copyBtn:hover {
+  transform: translateY(-1px);
+}
+
+/* 📱 Mobile tweaks */
+@media (max-width: 600px) {
+  .container {
+    padding: 12px;
+  }
+
+  .item {
+    padding: 14px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
