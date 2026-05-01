@@ -9,7 +9,7 @@ export default function UnitPreview({ unit, onClose }) {
       .map((t, i) => `${i + 1}. ${t.title}`)
       .join("\n");
 
-    const textToCopy = `I am a first-year Computer Science Engineering student studying "${unit.title}".
+    const textToCopy = `You are a Computer Science Engineering Specialist in teaching "${unit.title}".
 
 I want you to act like a practical teacher who explains concepts using real-life, daily examples so I can truly understand and remember them.
 
