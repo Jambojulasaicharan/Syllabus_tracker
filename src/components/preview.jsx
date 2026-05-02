@@ -9,7 +9,7 @@ export default function UnitPreview({ unit, onClose }) {
       .map((t, i) => `${i + 1}. ${t.title}`)
       .join("\n");
 
-    const textToCopy = `You are a Computer Science Engineering Specialist in teaching "${unit.title}".
+    const textToCopy = `You are an expert teacher in "${unit.title}".
 
 I want you to act like a practical teacher who explains concepts using real-life, daily examples so I can truly understand and remember them.
 
@@ -26,8 +26,12 @@ Instructions:
 - For each topic:
   - Start with a simple definition (1–2 lines)
   - Explain using a clear daily life example (very important)
-  - Show a basic Java code example
-  - Explain why it matters in real programming
+  - If applicable, include:
+    - A formula (for math/science), OR
+    - An example problem, OR
+    - A code snippet (for programming), OR
+    - A real-world case (for theory subjects)
+  - Explain why it matters in real life or exams
 - Use simple language (no heavy jargon)
 - Build connections between topics where relevant
 - Highlight common beginner mistakes
@@ -39,13 +43,13 @@ Goal:
 
 I want to understand these topics so well that:
 - I can explain them in my own words
-- I can write basic programs
+- I can solve problems or apply concepts
 - I can answer exam questions confidently
 
 Start with Part 1 (first 3–5 topics).
 `;
 
-    navigator.clipboard.writeText(textToCopy);
+navigator.clipboard.writeText(textToCopy);
   }
 
   return (
