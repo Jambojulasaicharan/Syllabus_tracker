@@ -23,7 +23,7 @@ ${topicList}
 Instructions:
 
 - Divide the topics into multiple parts
-- Cover ONLY 2–3 topics per part to maintain depth and clarity
+- Cover ONLY 2 topics per part to maintain depth and clarity
 - Do NOT explain everything at once — wait for me to say "next" before continuing
 
 For EACH topic, follow this exact structure:
@@ -76,7 +76,7 @@ I want to:
 - Apply it in problems or real situations
 - Handle exam questions confidently
 
-Start with Part 1 (only 2 topics).
+Start with Part 1 .
 After completion of all the parts generate a prompt to create a quiz of all these topics with sufficient questions.
 `;
 
