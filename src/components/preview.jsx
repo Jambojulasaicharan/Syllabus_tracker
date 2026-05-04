@@ -76,7 +76,7 @@ I want to:
 - Apply it in problems or real situations
 - Handle exam questions confidently
 
-Start with Part 1 (only 2–3 topics).
+Start with Part 1 (only 2 topics).
 After completion of all the parts generate a prompt to create a quiz of all these topics with sufficient questions.
 `;
 
